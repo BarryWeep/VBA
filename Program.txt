@@ -1,0 +1,114 @@
+
+' sub function do not run !!!!
+Function ConcatUniq(xRg As Range, xChar As String) As String
+'=ConcatUniq(:,",")
+'updateby Extendoffice
+    Dim xCell As Range
+    Dim xDic As Object
+    Set xDic = CreateObject("Scripting.Dictionary")
+    For Each xCell In xRg
+        xDic(xCell.Value) = Empty
+    Next
+    ConcatUniq = Join$(xDic.Keys, xChar)
+    Set xDic = Nothing
+End Function
+
+' sub function do not run !!!!
+Function FindTemplate(inputValue As String) As String
+    Select Case inputValue
+    Case "Shirts"
+       FindTemplate = "LogoDesignTemplate"
+    Case "Jackets"
+       FindTemplate = "LogoDesignTemplate"
+    Case "Vests"
+       FindTemplate = "LogoDesignTemplate"
+    Case "Knitwear"
+       FindTemplate = "LogoDesignTemplate"
+    Case "Polars"
+       FindTemplate = "LogoDesignTemplate"
+    Case "Polos"
+       FindTemplate = "LogoDesignTemplate"
+    Case "Singlets"
+       FindTemplate = "LogoDesignTemplate"
+    Case "Tees"
+       FindTemplate = "LogoDesignTemplate"
+    Case "Fleeces"
+       FindTemplate = "LogoDesignTemplate"
+    Case "Hoodies"
+       FindTemplate = "LogoDesignTemplate"
+    Case "Sweaters"
+       FindTemplate = "LogoDesignTemplate"
+    Case Else
+       FindTemplate = "SimpleTemplate"
+End Select
+End Function
+
+
+
+' main Function Run this
+' Step one => change the Star_column_Value and End_Column_Value
+' Then Run => click the title and then click the Triangle "Play video" icon above
+Sub ParentStandardlize()
+    Dim Start_Column_Value As Integer
+    Dim Start_Row_Value As Integer
+    Dim End_Column_Value As Integer
+    Dim End_Row_Value As Integer
+    
+    Start_Column_Value = 3
+    Start_Row_Value = 2
+    End_Column_Value = 3
+    End_Row_Value = 25
+    
+    ' Copy paste from children, next step modify values
+    Rows(Start_Row_Value).Select
+    Selection.Insert
+    
+    'bring in values
+    Range("B" & Start_Row_Value).Value = "Varibale"
+    Range("c" & Start_Row_Value).Value = Range("AG" & Start_Row_Value + 1).Value
+    Range("D" & Start_Row_Value).Value = Range("D" & Start_Row_Value + 1).Value
+    Range("E" & Start_Row_Value).Value = Range("E" & Start_Row_Value + 1).Value
+    Range("L" & Start_Row_Value).Value = Range("L" & Start_Row_Value + 1).Value
+    Range("N" & Start_Row_Value).Value = Range("N" & Start_Row_Value + 1).Value
+    Range("Q" & Start_Row_Value).Value = Range("Q" & Start_Row_Value + 1).Value
+    Range("R" & Start_Row_Value).Value = Range("R" & Start_Row_Value + 1).Value
+    Range("W" & Start_Row_Value).Value = "1"
+    Range("Z" & Start_Row_Value).Value = Range("Z" & Start_Row_Value + 1).Value
+    Range("AA" & Start_Row_Value).Value = Range("AA" & Start_Row_Value + 1).Value
+    
+    'get the tag value
+    Dim theTagvalue As String
+    theTagvalue = Range("AB" & Start_Row_Value + 1).Value
+    Range("AB" & Start_Row_Value).Value = FindTemplate(theTagvalue)
+    
+
+
+    'Color Attribute
+    Range("AN" & Start_Row_Value).Value = Range("AN" & Start_Row_Value + 1).Value
+    
+    Dim ColorAtr As Range
+    Set ColorAtr = Range(("AO" & Start_Row_Value + 1) & (":AO" & End_Row_Value + 1))
+    Range("AO" & Start_Row_Value).Value = ConcatUniq(ColorAtr, ",")
+    
+    'Size Attribute
+    Range("AR" & Start_Row_Value).Value = Range("AR" & Start_Row_Value + 1).Value
+    
+    Dim SizeAtr As Range
+    Set SizeAtr = Range(("AS" & Start_Row_Value + 1) & (":AS" & End_Row_Value + 1))
+    Range("AS" & Start_Row_Value).Value = ConcatUniq(SizeAtr, ",")
+    
+    Rows((Start_Row_Value) & ":" & (End_Row_Value + 1)).Select
+    Selection.Interior.Color = 65535
+    
+    Dim x As Integer
+    For x = Start_Row_Value + 1 To End_Row_Value + 1
+     Range("AA" & x).Value = ""
+     Range("AB" & x).Value = ""
+    Next x
+
+    
+End Sub
+
+
+
+
