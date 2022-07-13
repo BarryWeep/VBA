@@ -1,0 +1,73 @@
+Sub DescriptionMerge()
+    Dim theStartRow As Integer
+    
+    theStartRow = 2
+    
+    Do Until IsEmpty(Cells(theStartRow, 1))
+        Do Until Cells(theStartRow, 1).Value <> Cells(theStartRow + 1, 1).Value
+           Cells(theStartRow, 2).Value = Cells(theStartRow, 2).Value & vbNewLine & Cells(theStartRow + 1, 2)
+           Cells(theStartRow + 1, 1).EntireRow.Delete
+        Loop
+        theStartRow = theStartRow + 1
+    Loop
+    
+    
+
+End Sub
+
+
+Sub Addlist()
+    
+    Dim newstart As Integer
+    
+    newstart = 2
+    Do Until IsEmpty(Cells(newstart, 1))
+        
+        Cells(newstart, 2).Value = "<li>" & Cells(newstart, 2).Value & "</li>"
+    
+    newstart = newstart + 1
+    Loop
+    
+    
+End Sub
+
+
+Sub DistributeDescription()
+    Dim Description_Index As Integer 'main page
+    Dim MatchData_Index As Integer  'web modelling row page
+    
+    Description_Index = 2
+    MatchData_Index = 2
+
+    Do Until IsEmpty(Sheets("RowTwo").Cells(MatchData_Index, 1))
+        Description_Index = 2
+        Do Until IsEmpty(Sheets("MainData").Cells(Description_Index, 3))
+            If Sheets("RowTwo").Cells(MatchData_Index, 1).Value = Sheets("MainData").Cells(Description_Index, 3).Value Then
+                Sheets("MainData").Cells(Description_Index, 9).Value = Sheets("RowTwo").Cells(MatchData_Index, 2).Value
+            End If
+            
+            Description_Index = Description_Index + 1
+        Loop
+        
+        MatchData_Index = MatchData_Index + 1
+    Loop
+    
+
+End Sub
+
+
+Sub Datadisplay()
+
+    MsgBox Sheets("MainData").Cells(2, 3).Value
+    MsgBox Sheets("RowOne").Cells(2, 1).Value
+    
+End Sub
+
+
+
+
+
+
+
+
+
