@@ -109,6 +109,33 @@ Sub ParentStandardlize()
     
 End Sub
 
+Sub assignImg()
+
+    Dim MainPage_index As Integer
+    Dim imgPage_index As Integer
+    MainPage_index = 2
+    imgPage_index = 2
+    
+    Do Until IsEmpty(Sheets("NextPage").Cells(imgPage_index, 1))
+        MainPage_index = 2
+        Do Until IsEmpty(Sheet("MainData").Cells(MainPage_index, 2))
+            If Sheets("NextPage").Cells(imgPage_index, 1).Value = Sheets("MainData").Cells(MainPage_index, 33).Value Then
+                If Sheets("NextPage").Cells(imgPage_index, 2).Value = Sheets("MainData").Cells(MainPage_index, 41).Value Then
+                    Sheets("MainData").Cells(MainPage_index, 30).Value = Sheets("NextPage").Cells(imgPage_index, 3).Value
+                End If
+            End If
+        MainPage_index = MainPage_index + 1
+        Loop
+        
+    imgPage_index = imgPage_index + 1
+    Loop
+    
+
+
+End Sub
+
+
+
 
 
 
