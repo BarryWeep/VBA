@@ -1,5 +1,5 @@
 
-' sub function do not run !!!!
+' sub function do not run !!!! find the unique from groups 
 Function ConcatUniq(xRg As Range, xChar As String) As String
 '=ConcatUniq(:,",")
 'updateby Extendoffice
@@ -13,7 +13,7 @@ Function ConcatUniq(xRg As Range, xChar As String) As String
     Set xDic = Nothing
 End Function
 
-' sub function do not run !!!!
+' sub function do not run !!!! find the template logoDesigntemplate/ Simple Template return template
 Function FindTemplate(inputValue As String) As String
     Select Case inputValue
     Case "Shirts"
