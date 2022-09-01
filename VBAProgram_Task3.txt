@@ -1,0 +1,160 @@
+Sub formattdth()
+    
+    Dim theStartRow As Integer
+    Dim imgPage_index As Integer
+    Dim MergedContent As String
+
+    theStartRow = 1
+    imgPage_index = 1
+
+    Do Until IsEmpty(Cells(theStartRow, 1))
+    
+    ' level one
+     If Cells(theStartRow, 2).Value = "REGULAR" Or Cells(theStartRow, 2).Value = "GIRLS" Or Cells(theStartRow, 2).Value = "BOYS" Or Cells(theStartRow, 2).Value = "LADIES" Or Cells(theStartRow, 2).Value = "ADULTS" Or Cells(theStartRow, 2).Value = "KIDS" Or Cells(theStartRow, 2).Value = "STOUT" Then
+        
+        MergedContent = Cells(theStartRow, 2).Value
+        Cells(theStartRow, 2).Value = "<table class=" & Chr(34) & "aushen-size-chart-table" & Chr(34) & "><thead><tr><th class=" & Chr(34) & MergedContent & Chr(34) & ">" & MergedContent & "</th>"
+        theStartRow = theStartRow + 1
+
+        Do Until IsEmpty(Cells(theStartRow, 1)) Or Cells(theStartRow, 2).Value = "INNER LEG" Or Cells(theStartRow, 2).Value = "1/2 WAIST" Or Cells(theStartRow, 2).Value = "CB LENGTH" Or Cells(theStartRow, 2).Value = "1/2 WAIST STRETCH" Or Cells(theStartRow, 2).Value = "COLLAR" Or Cells(theStartRow, 2).Value = "BUST" Or Cells(theStartRow, 2).Value = "SP LENGTH" Or Cells(theStartRow, 2).Value = "CHEST" Or Cells(theStartRow, 2).Value = "WAIST" Or Cells(theStartRow, 2).Value = "LENGTH"
+            MergedContent = Cells(theStartRow, 2).Value
+            Cells(theStartRow, 2).Value = "<th><abbr title=" & Chr(34) & MergedContent & Chr(34) & ">" & MergedContent & "</abbr></th>"
+            theStartRow = theStartRow + 1
+        Loop
+     End If
+
+    'theChest the SP LENGTH
+    
+    ' level two
+        If Cells(theStartRow, 2).Value = "INNER LEG" Or Cells(theStartRow, 2).Value = "1/2 WAIST" Or Cells(theStartRow, 2).Value = "CB LENGTH" Or Cells(theStartRow, 2).Value = "1/2 WAIST STRETCH" Or Cells(theStartRow, 2).Value = "COLLAR" Or Cells(theStartRow, 2).Value = "BUST" Or Cells(theStartRow, 2).Value = "SP LENGTH" Or Cells(theStartRow, 2).Value = "CHEST" Or Cells(theStartRow, 2).Value = "WAIST" Or Cells(theStartRow, 2).Value = "LENGTH" Then
+
+            MergedContent = Cells(theStartRow, 2).Value
+            Cells(theStartRow, 2).Value = "</tr></thead></tbody><tr><th class=" & Chr(34) & MergedContent & Chr(34) & "><a href=" & Chr(34) & "/general/sizing-specifications" & Chr(34) & ">" & MergedContent & "</a></th>"
+            theStartRow = theStartRow + 1
+            Do Until IsEmpty(Cells(theStartRow, 1)) Or Cells(theStartRow, 2).Value = "REGULAR" Or Cells(theStartRow, 2).Value = "GIRLS" Or Cells(theStartRow, 2).Value = "BOYS" Or Cells(theStartRow, 2).Value = "LADIES" Or Cells(theStartRow, 2).Value = "ADULTS" Or Cells(theStartRow, 2).Value = "KIDS" Or Cells(theStartRow, 2).Value = "STOUT" Or Cells(theStartRow, 2).Value = "1/2 WAIST STRETCH" Or Cells(theStartRow, 2).Value = "SP LENGTH" Or Cells(theStartRow, 2).Value = "CB LENGTH" Or Cells(theStartRow, 2).Value = "CHEST" Or Cells(theStartRow, 2).Value = "SP LENGTH" Or Cells(theStartRow, 2).Value = "BUST" Or Cells(theStartRow, 2).Value = "INNER LEG" Or Cells(theStartRow, 2).Value = "WAIST STRETCHED" Or Cells(theStartRow, 2).Value = "1/2 HIP" Or Cells(theStartRow, 2).Value = "1/2 WAIST" Or Cells(theStartRow, 2).Value = "LENGTH INC WB" Or Cells(theStartRow, 2).Value = "WAIST" Or Cells(theStartRow, 2).Value = "SKIRT LENGTH" Or Cells(theStartRow, 2).Value = "SP BACK LENGTH"
+                MergedContent = Cells(theStartRow, 2).Value
+                Cells(theStartRow, 2).Value = "<td>" & MergedContent & "</td>"
+                theStartRow = theStartRow + 1
+            Loop
+        End If
+        
+'level three
+
+        If Cells(theStartRow, 2).Value = "1/2 WAIST STRETCH" Or Cells(theStartRow, 2).Value = "SP LENGTH" Or Cells(theStartRow, 2).Value = "CB LENGTH" Or Cells(theStartRow, 2).Value = "CHEST" Or Cells(theStartRow, 2).Value = "SP LENGTH" Or Cells(theStartRow, 2).Value = "BUST" Or Cells(theStartRow, 2).Value = "INNER LEG" Or Cells(theStartRow, 2).Value = "WAIST STRETCHED" Or Cells(theStartRow, 2).Value = "1/2 HIP" Or Cells(theStartRow, 2).Value = "1/2 WAIST" Or Cells(theStartRow, 2).Value = "LENGTH INC WB" Or Cells(theStartRow, 2).Value = "WAIST" Or Cells(theStartRow, 2).Value = "SKIRT LENGTH" Or Cells(theStartRow, 2).Value = "SP BACK LENGTH" Then
+        
+            
+            MergedContent = Cells(theStartRow, 2).Value
+            Cells(theStartRow, 2).Value = "</tr><tr><th class=" & Chr(34) & MergedContent & Chr(34) & "><a href=" & Chr(34) & "/general/sizing-specifications" & Chr(34) & ">" & MergedContent & "</a></th>"
+            theStartRow = theStartRow + 1
+            Do Until IsEmpty(Cells(theStartRow, 1)) Or Cells(theStartRow, 2).Value = "REGULAR" Or Cells(theStartRow, 2).Value = "GIRLS" Or Cells(theStartRow, 2).Value = "BOYS" Or Cells(theStartRow, 2).Value = "LADIES" Or Cells(theStartRow, 2).Value = "ADULTS" Or Cells(theStartRow, 2).Value = "KIDS" Or Cells(theStartRow, 2).Value = "STOUT" Or Cells(theStartRow, 2).Value = "INNER LEG" Or Cells(theStartRow, 2).Value = "CB LENGTH" Or Cells(theStartRow, 2).Value = "COLLAR" Or Cells(theStartRow, 2).Value = "WAIST STRETCHED" Or Cells(theStartRow, 2).Value = "1/2 WAIST STRETCH" Or Cells(theStartRow, 2).Value = "SP LENGTH" Or Cells(theStartRow, 2).Value = "HSP LENGTH" Or Cells(theStartRow, 2).Value = "WAIST"
+                MergedContent = Cells(theStartRow, 2).Value
+                Cells(theStartRow, 2).Value = "<td>" & MergedContent & "</td>"
+                theStartRow = theStartRow + 1
+            Loop
+    Else
+        theStartRow = theStartRow - 1
+                MergedContent = Cells(theStartRow, 2).Value
+                Cells(theStartRow, 2).Value = MergedContent & "</tr></tbody></table>"
+        theStartRow = theStartRow + 1
+
+    End If
+        
+'level four
+            If Cells(theStartRow, 2).Value = "INNER LEG" Or Cells(theStartRow, 2).Value = "CB LENGTH" Or Cells(theStartRow, 2).Value = "COLLAR" Or Cells(theStartRow, 2).Value = "WAIST STRETCHED" Or Cells(theStartRow, 2).Value = "1/2 WAIST STRETCH" Or Cells(theStartRow, 2).Value = "SP LENGTH" Or Cells(theStartRow, 2).Value = "HSP LENGTH" Or Cells(theStartRow, 2).Value = "WAIST" Then
+                MergedContent = Cells(theStartRow, 2).Value
+                Cells(theStartRow, 2).Value = "</tr><tr><th class=" & Chr(34) & MergedContent & Chr(34) & "><a href=" & Chr(34) & "/general/sizing-specifications" & Chr(34) & ">" & MergedContent & "</a></th>"
+                theStartRow = theStartRow + 1
+                Do Until IsEmpty(Cells(theStartRow, 1)) Or Cells(theStartRow, 2).Value = "REGULAR" Or Cells(theStartRow, 2).Value = "GIRLS" Or Cells(theStartRow, 2).Value = "BOYS" Or Cells(theStartRow, 2).Value = "LADIES" Or Cells(theStartRow, 2).Value = "ADULTS" Or Cells(theStartRow, 2).Value = "KIDS" Or Cells(theStartRow, 2).Value = "STOUT" Or Cells(theStartRow, 2).Value = "1/2 HIP" Or Cells(theStartRow, 2).Value = "WAIST STRETCHED"
+                    MergedContent = Cells(theStartRow, 2).Value
+                    Cells(theStartRow, 2).Value = "<td>" & MergedContent & "</td>"
+                    theStartRow = theStartRow + 1
+                Loop
+            Else
+                
+                theStartRow = theStartRow - 1
+                MergedContent = Cells(theStartRow, 2).Value
+                Cells(theStartRow, 2).Value = MergedContent & "</tr></tbody></table>"
+                 theStartRow = theStartRow + 1
+            
+            End If
+  
+ 'level five
+         If Cells(theStartRow, 2).Value = "1/2 HIP" Or Cells(theStartRow, 2).Value = "WAIST STRETCHED" Then
+             MergedContent = Cells(theStartRow, 2).Value
+                 Cells(theStartRow, 2).Value = "</tr><tr><th class=" & Chr(34) & MergedContent & Chr(34) & "><a href=" & Chr(34) & "/general/sizing-specifications" & Chr(34) & ">" & MergedContent & "</a></th>"
+            theStartRow = theStartRow + 1
+            Do Until IsEmpty(Cells(theStartRow, 1)) Or Cells(theStartRow, 2).Value = "REGULAR" Or Cells(theStartRow, 2).Value = "GIRLS" Or Cells(theStartRow, 2).Value = "BOYS" Or Cells(theStartRow, 2).Value = "LADIES" Or Cells(theStartRow, 2).Value = "ADULTS" Or Cells(theStartRow, 2).Value = "KIDS" Or Cells(theStartRow, 2).Value = "STOUT" Or Cells(theStartRow, 2).Value = "INNER LEG"
+                    MergedContent = Cells(theStartRow, 2).Value
+                    Cells(theStartRow, 2).Value = "<td>" & MergedContent & "</td>"
+                     theStartRow = theStartRow + 1
+            Loop
+    Else
+                theStartRow = theStartRow - 1
+                MergedContent = Cells(theStartRow, 2).Value
+                Cells(theStartRow, 2).Value = MergedContent & "</tr></tbody></table>"
+          theStartRow = theStartRow + 1
+    End If
+    
+ 'level six
+         If Cells(theStartRow, 2).Value = "INNER LEG" Then
+             MergedContent = Cells(theStartRow, 2).Value
+                 Cells(theStartRow, 2).Value = "</tr><tr><th class=" & Chr(34) & MergedContent & Chr(34) & "><a href=" & Chr(34) & "/general/sizing-specifications" & Chr(34) & ">" & MergedContent & "</a></th>"
+                 theStartRow = theStartRow + 1
+            Do Until IsEmpty(Cells(theStartRow, 1)) Or Cells(theStartRow, 2).Value = "REGULAR" Or Cells(theStartRow, 2).Value = "GIRLS" Or Cells(theStartRow, 2).Value = "BOYS" Or Cells(theStartRow, 2).Value = "LADIES" Or Cells(theStartRow, 2).Value = "ADULTS" Or Cells(theStartRow, 2).Value = "KIDS" Or Cells(theStartRow, 2).Value = "STOUT"
+                    MergedContent = Cells(theStartRow, 2).Value
+                    Cells(theStartRow, 2).Value = "<td>" & MergedContent & "</td>"
+                     theStartRow = theStartRow + 1
+            Loop
+    Else
+                theStartRow = theStartRow - 1
+                MergedContent = Cells(theStartRow, 2).Value
+                Cells(theStartRow, 2).Value = MergedContent & "</tr></tbody></table>"
+          theStartRow = theStartRow + 1
+    End If
+    
+
+
+
+    Loop
+
+End Sub
+
+
+Sub assignvalue()
+    'from row six to end
+    Dim MainPage_index As Integer
+    Dim Secondary_index As Integer
+    
+    MainPage_index = 2
+    Secondary_index = 1
+
+    Do Until IsEmpty(Sheets("Main").Cells(MainPage_index, 1))
+
+        Secondary_index = 1
+        
+        If IsEmpty(Sheets("Main").Cells(MainPage_index, 2)) Then
+        
+            Do Until IsEmpty(Sheets("RowEight").Cells(Secondary_index, 1))
+        
+        
+                If Sheets("Main").Cells(MainPage_index, 1).Value = Sheets("RowEight").Cells(Secondary_index, 1).Value Then
+    
+                 Sheets("Main").Cells(MainPage_index, 2).Value = Sheets("Main").Cells(MainPage_index, 2).Value & Sheets("RowEight").Cells(Secondary_index, 2).Value
+    
+              
+                End If
+            
+            Secondary_index = Secondary_index + 1
+            Loop
+        End If
+
+
+    MainPage_index = MainPage_index + 1
+    Loop
+
+End Sub
+
+
+
+
+
